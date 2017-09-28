@@ -7,7 +7,7 @@ export function fetchCars(channel) {
   };
 }
 
-export function createPost(body, callback) {
+export function createCar(body, callback) {
   debugger
   const request = fetch(`https://wagon-garage-api.herokuapp.com/wagon/cars`, {
   }).then(response => response.json())

@@ -9,7 +9,7 @@ import { createCar } from '../actions';
 // Components
 class CarsNew extends Component {
   onSubmit = (values) => {
-    this.props.createPost(values, () => {
+    this.props.createCar(values, () => {
       this.props.history.push('/');
     });
   }
@@ -27,13 +27,12 @@ class CarsNew extends Component {
       <div>
         <h1>Add a new Car</h1>
         <form>
-          <Field label="Brand" name="title" type="text" component={this.renderField} />
-          <Field label="Owner" name="title" type="text" component={this.renderField} />
-          <Field label="Model" name="title" type="text" component={this.renderField} />
-          <Field label="Plate" name="title" type="text" component={this.renderField} />
+          <Field label="Brand" name="brand" type="text" component={this.renderField} />
+          <Field label="Owner" name="owner" type="text" component={this.renderField} />
+          <Field label="Model" name="model" type="text" component={this.renderField} />
+          <Field label="Plate" name="plate" type="text" component={this.renderField} />
 
-          <button className="btn btn-primary" type="submit"
-            >
+          <button className="btn btn-primary" type="submit" disabled={this.props.pristine || this.props.submitting}>
             Add Car
           </button>
         </form>
