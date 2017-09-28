@@ -11,7 +11,6 @@ class CarsNew extends Component {
       this.props.history.push('/');
     });
   }
-
   renderField(field) {
     return (
       <div className="form-group">
