@@ -9,9 +9,11 @@ import { createHistory as history } from 'history';
 
 import Home from './components/home';
 import About from './components/about';
+import CarsNew from './containers/cars_new';
 
 // Reducers
 import carsReducer from './reducers/cars_reducer';
+import { reducer as formReducer } from 'redux-form';
 import '../assets/stylesheets/application.scss';
 
 // const initialState = {
@@ -24,7 +26,8 @@ import '../assets/stylesheets/application.scss';
 // };
 
 const reducers = combineReducers({
-  cars: carsReducer
+  cars: carsReducer,
+  form: formReducer
 });
 
 const middlewares = applyMiddleware(reduxPromise, logger);
@@ -35,7 +38,7 @@ ReactDOM.render(
     <Router history={history}>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/about" exact component={About} />
+        <Route path="/new" exact component={CarsNew} />
       </Switch>
     </Router>
   </Provider>,

@@ -3,17 +3,20 @@ import React, { Component } from 'react';
 // Redux config
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchCars } from '../actions';
+import { createCar } from '../actions';
 
 // Components
 import Car from '../components/car';
 
 class CarsNew extends Component {
+  handleSubmit = (event) => {
+    this.props.createCar;
+  };
+
   render() {
-    const cars = this.props.cars;
     return (
-      <div className="">
-        {cars.map(car => <Car key={car.plate} car={car} />)}
+      <div className="" onClick={this.handleSubmit}>
+        Create a fake Car
       </div>
     );
   }
@@ -32,4 +35,4 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CarsIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(CarsNew);

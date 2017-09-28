@@ -6,3 +6,24 @@ export function fetchCars(channel) {
     payload: promise
   };
 }
+
+export function createCar() {
+  const promise = fetch(`https://wagon-garage-api.herokuapp.com/wagon/cars`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        brand: "Fusée",
+        model: "666",
+        owner: "juliends",
+        plate: "I<3U"
+      })
+    })
+    .then(response => response.json());
+  return {
+    type: 'CREATE_CAR',
+    payload: promise
+  };
+}
