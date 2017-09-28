@@ -9,10 +9,11 @@ import { createHistory as history } from 'history';
 
 import Home from './components/home';
 import About from './components/about';
+
+// Reducers
+import carsReducer from './reducers/cars_reducer';
 import '../assets/stylesheets/application.scss';
 
-// State and reducers
-import carsReducer from './reducers/cars_reducer';
 const initialState = {
   cars: [
     { id: 1, brand: 'Peugeot', model: '106', owner: 'John', plate: 'WOB-ED-42' },
