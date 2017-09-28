@@ -6,7 +6,7 @@ export function fetchCars(channel) {
     payload: promise
   };
 }
-
+// https://wagon-garage-api.herokuapp.com/cars/:id
 export function createCar(body, callback) {
   const request = fetch(`https://wagon-garage-api.herokuapp.com/wagon/cars`,
     {
@@ -23,3 +23,17 @@ export function createCar(body, callback) {
     payload: request
   };
 }
+
+export function deleteCar(id) {
+  const request = fetch(`https://wagon-garage-api.herokuapp.com/cars/${id}`,
+    {
+      method: "DELETE",
+    })
+    .then(response => response.json())
+    .then(() => callback());
+  return {
+    type: 'CREATE_CAR',
+    payload: request
+  };
+}
+

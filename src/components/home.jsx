@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className="app">
       <div>
-        <strong>My garage</strong> | <Link to="new">Add your car</Link>
+        <strong>Wagon garage</strong> | <Link to="new">Add your car</Link>
       </div>
       <hr />
       <div>

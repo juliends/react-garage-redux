@@ -4,10 +4,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchCars } from '../actions';
-import _ from 'lodash';
+// import _ from 'lodash';
 
 // Components
-import Car from '../components/car';
+import Car from './car';
 
 class CarsIndex extends Component {
   componentWillMount() {
