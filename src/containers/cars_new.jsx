@@ -8,11 +8,7 @@ import { fetchCars } from '../actions';
 // Components
 import Car from '../components/car';
 
-class CarsIndex extends Component {
-  componentWillMount() {
-    this.props.fetchCars();
-  }
-
+class CarsNew extends Component {
   render() {
     const cars = this.props.cars;
     return (
@@ -31,7 +27,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { fetchCars },
+    { createCar },
     dispatch
   );
 }
