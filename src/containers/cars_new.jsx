@@ -10,7 +10,7 @@ import Car from '../components/car';
 
 class CarsNew extends Component {
   handleSubmit = (event) => {
-    this.props.createCar;
+    this.props.createCar();
   };
 
   render() {

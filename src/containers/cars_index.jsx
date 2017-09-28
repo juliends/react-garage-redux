@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchCars } from '../actions';
+import _ from 'lodash';
 
 // Components
 import Car from '../components/car';
@@ -14,10 +15,9 @@ class CarsIndex extends Component {
   }
 
   render() {
-    const cars = this.props.cars;
     return (
       <div className="">
-        {cars.map(car => <Car key={car.plate} car={car} />)}
+        {this.props.cars.map(car => <Car key={car.plate} car={car} />)}
       </div>
     );
   }
@@ -25,7 +25,7 @@ class CarsIndex extends Component {
 
 function mapStateToProps(state) {
   return {
-    cars: state.cars,
+    cars: state.cars
   };
 }
 

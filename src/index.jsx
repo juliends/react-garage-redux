@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createHistory as history } from 'history';
 
 import Home from './components/home';
-import About from './components/about';
+// import About from './components/about';
 import CarsNew from './containers/cars_new';
 
 // Reducers
@@ -34,7 +34,7 @@ const middlewares = applyMiddleware(reduxPromise, logger);
 
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers, {}, middlewares)}>
+  <Provider store={createStore(reducers, {cars: [], garage: 'my-awesome-garage'}, middlewares)}>
     <Router history={history}>
       <Switch>
         <Route path="/" exact component={Home} />
