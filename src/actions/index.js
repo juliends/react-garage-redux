@@ -24,7 +24,7 @@ export function createCar(body, callback) {
   };
 }
 
-export function deleteCar(id) {
+export function deleteCar(id, callback) {
   const request = fetch(`https://wagon-garage-api.herokuapp.com/cars/${id}`,
     {
       method: "DELETE",
@@ -32,7 +32,7 @@ export function deleteCar(id) {
     .then(response => response.json())
     .then(() => callback());
   return {
-    type: 'CREATE_CAR',
+    type: 'DELETE_CAR',
     payload: request
   };
 }

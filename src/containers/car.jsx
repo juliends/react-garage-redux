@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { deleteCar } from '../actions';
+import { deleteCar, fetchCars } from '../actions';
 
 class Car extends Component {
 
   handleClick = () => {
-    this.props.deleteCar(this.props.car.id);
+    this.props.deleteCar(this.props.car.id, this.props.fetchCars);
   }
-  
+
   render() {
     const car = this.props.car;
     return (
@@ -27,7 +27,7 @@ class Car extends Component {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { deleteCar },
+    { deleteCar, fetchCars },
     dispatch
   );
 }
