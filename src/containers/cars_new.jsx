@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
-import { createCar } from '../actions';
+import { bindActionCreators } from 'redux';
+import { createCar, fetchCars } from '../actions';
 import { Link } from 'react-router-dom';
 
 // Components
 class CarsNew extends Component {
   onSubmit = (values) => {
-    this.props.createCar(values, () => {
-      this.props.history.push('/');
-    });
+    this.props.createCar(values, this.props.fetchCars);
   }
+  // That version redirects to home page from dedicated view/new
+  // onSubmit = (values) => {
+  //   console.log(this.props.fetchCars);
+  //   this.props.createCar(values, () => {
+  //     this.props.history.push('/');
+  //   });
+  // }
   renderField(field) {
     return (
       <div className="form-group">
@@ -45,8 +51,16 @@ class CarsNew extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { createCar, fetchCars },
+    dispatch
+  );
+}
+
+
 export default reduxForm({
   form: 'newCarForm' // a unique identifier
 })(
-  connect(null, { createCar })(CarsNew)
+  connect(null, mapDispatchToProps)(CarsNew)
 );

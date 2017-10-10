@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CarsList from '../containers/cars_index';
+import CarsNew from '../containers/cars_new';
 
 const Home = () => {
   return (
@@ -12,6 +13,8 @@ const Home = () => {
       <div>
         <CarsList />
       </div>
+      <hr />
+      <CarsNew />
     </div>
   );
 };
